@@ -45,6 +45,13 @@
             object-fit: cover;
             margin-bottom: 20px;
         }
+		
+		.sidebar1 img {
+			width: 150px; /* 設定圖片寬度為150像素 */
+			height: 100px; /* 設定圖片高度為100像素，使其成為長方形 */
+			object-fit: cover; /* 確保圖片適合框架大小並裁剪多餘部分 */
+			margin-bottom: 20px; /* 設定圖片下方外邊距為20像素 */
+		}
 
         .sidebar h1 {
             font-family: 'Montserrat', sans-serif;
@@ -358,25 +365,27 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <img src="Hsu.jpg" alt="Hsu Jia-Lien">
-		 <h1>Jia-Lien Hsu<h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#Insert">Research Interest</a>
-            <a href="#Publication">Publication</a>
-            <a href="#Profile">Profile</a>
-            <a href="#Lab members">Lab Members</a>
-        </nav>
+		    <h1>Jia-Lien Hsu<h1>
+        <nav style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+			<a href="#about">About</a>
+			<a href="#Insert">Research Interest</a>
+			<a href="#Publication">Publication</a>
+			<a href="#Profile">Profile</a>
+			<a href="#Lab members">Lab Members</a>
+		</nav>
+
     </div>
 
     <!-- Main content -->
     <div class="content">
         <section id="about">
-			<h1>
-				<img src="big fju logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 550px; height: 100px;">
-				<br/><img src="small logo.png" alt="Logo" style="vertical-align: middle; width: 30px; height: 30px; margin-right: 10px;">知識工程實驗室 / Knowledge Engineering Lab
-			</h1>
+			<!-- <h1> -->
+				<!-- <img src="big fju logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 550px; height: 100px;"> -->
+				<!-- <br/><img src="small logo.png" alt="Logo" style="vertical-align: middle; width: 30px; height: 30px; margin-right: 10px;">知識工程實驗室 / Knowledge Engineering Lab -->
+			<!-- </h1> -->
 
-			<!-- <h1><img src="fju logo.jpg" alt="Logo" style="vertical-align: middle; width: 100px; height: 100px; margin-right: -10px;"> 知識工程實驗室 / Knowledge Engineering Lab</h1> --><!-- 輔大LOGO-->
+			<h1><img src="CSIE logo.png" alt="Logo" style="vertical-align: middle; width: 100px; height:90px; margin-right: -10px;"> 知識工程實驗室 / Knowledge Engineering Lab</h1> <!-- 輔大LOGO-->
+
 			<div class="project-block" id = "lab1">  <!-- 區塊開始 -->
                 <h2 style="font-size: 1.5em;">
 					輔仁大學資訊工程學系 教授 <br/> Professor, Fu Jen Catholic University </h2>
@@ -395,17 +404,15 @@
         
         <section id="about">
             <h1 id="Insert"><img src="small logo.png" alt="Logo" style="vertical-align: middle; width: 30px; height: 30px; margin-right: 10px;"> <!--small logo-->Research Interest</h1>
-            <div class="project-block" id = "lab1"> <!-- 研究領域  框架1 --> 
-			<p style="margin-top: 30px;">
-                <h2>研究領域 / Research Interest</h2> 
+			<div class="project-block" id = "lab1">  <!-- 研究領域 / Research Interest 框架1-->
+                <h2>研究領域 / Research Interest</h2>
 				<ul>
 					<li>多媒體資料庫 / Multimedia Databases</li>
 					<li>音樂資訊查詢系統 / Music Information Retrieval / Music Informatics</li>
 					<li>資料探勘 / Data Mining</li>
 					<li>醫學資訊 / Medical Informatics</li>
 				</ul>  
-            </p>				
-            </div>
+			</div> <!-- 區塊結束 -->
 
             <div class="project-block" id = "lab2">  <!-- 研究計畫 / PROJECT 框架2 -->
             <h2>國科會研究計畫 / NSTC Project</h2>
@@ -597,7 +604,7 @@
 				<img src="small logo.png" alt="Logo" style="vertical-align: middle; width: 30px; height: 30px; margin-right: 10px;">
 				<!--small logo-->Profile
 			</h1>
-			<img src="big fju logo.png" alt="Logo" style="margin: 0 auto; width: 400px; height: 80px;"> <!--FJU logo-->
+			<img src="big fju logo.png" alt="Logo" style="width: 480px; height: 85px; margin-top:3px;margin-bottom:15px;"> <!--FJU logo-->
 			<div class="project-block" id="lab1" style="color: black;"> <!-- Profile 框架 --> 
 				<p style="font-size: 30px; line-height: 100%;" class="p2"><span class="s4">現任</span></p>
 				<div style="line-height: 150%;" class="p1">
