@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>徐嘉連 Lab Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            height: 100vh; /* Ensures full height of the screen */
+            overflow: hidden;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            background-color: #1f2937;
+            color: white;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Centers the content vertically */
+            padding: 20px;
+        }
+
+        .sidebar img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .sidebar h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .sidebar nav a {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 16px 0; /* Add vertical spacing between items */
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .sidebar nav a:hover {
+            color: #f97316;
+        }
+
+        /* Main content */
+        .content {
+            flex: 1;
+            padding: 60px;
+            background-color: #fff;
+            overflow-y: auto;
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #1f2937;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #5c5e61;
+            margin-bottom: 20px;
+        }
+
+        .contact-info a {
+            color: #1f2937;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .social-links a {
+            font-size: 24px;
+            color: #1f2937;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #f97316;
+        }
+
+        /* About section styling */
+        #about {
+            padding: 60px;
+            font-family: "Gill Sans", sans-serif;
+            
+        }
+
+        #about h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 18px;
+            color:rgb(28, 28, 69);
+        }
+
+
+        .ntu-logo {
+            margin-right: 15px;  /* Space between logo and text */
+            height: 60px;  /* Control logo size */
+        }
+
+        #about h5 {
+            font-family: 'italic', serif; /* Use a modern sans-serif font */
+            font-size: 20px;
+            letter-spacing: 0.8px;
+            color: #333; /* Modern dark gray color */
+            font-weight: 400; /* Light font-weight for sleek look */
+            margin: 0;
+        }
+
+        .separator {
+            border-bottom: 2px solid #ddd;  /* Gray line to separate the university section */
+            margin-top: 20px;
+            width: 100%;  /* Full width */
+        }
+
+        #about p {
+            font-size: 18.8px;
+            line-height: 1.7;
+            letter-spacing: 0.75px;
+            margin-bottom: 20px;
+        }
+
+        #about ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        #about ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .social-links img {
+            width: 30px;
+            margin-right: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+        }
+
+        a {
+            font-weight: 3000;
+            color: #473f3f; /* Dark gray */
+            text-decoration: none; /* Remove underline */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+
+        /* Responsive for smaller devices */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 20px;
+            }
+            .sidebar nav a {
+                margin: 0 15px;
+            }
+            .content {
+                padding: 30px;
+            }
+        }
+        /* Container for the lab logo outside the research block */
+        .lab-logo-container {
+            float: left; /* Float logo to the left */
+            margin-right: 20px; /* Space between logo and research block */
+            width: 100px; /* Adjust logo container size */
+        }
+
+        .lab-logo {
+            width: 80px; /* Adjust logo size */
+        }
+
+
+        .research-block {
+            background-color: #f0f4f8; /* Light background color for the blocks */
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+            overflow: hidden;
+            max-height: 270px; /* Initial block height */
+            transition: max-height 0.9s ease, padding 0.9s ease; /* Smooth transition for height and padding */
+            position: relative;
+        }
+        
+        /* Style for lab names to make them larger and visually distinct */
+        .research-block h2 {
+            font-family: 'Montserrat', sans-serif; /* Change font to something distinct but modern */
+            font-size: 25px; /* Make the lab name bigger */
+            font-weight: 700; /* Bold font for emphasis */
+            color: #333; /* Darker color for better contrast */
+            margin-bottom: 15px; /* Add space below the lab name */
+        }
+
+        /* Style for lab names to make them larger and visually distinct */
+        .research-block h3 {
+            font-family: 'Montserrat', sans-serif; /* Change font to something distinct but modern */
+            font-size: 20px; /* Make the lab name bigger */
+            font-weight: 500; /* Bold font for emphasis */
+            color: #333; /* Darker color for better contrast */
+            margin-bottom: 15px; /* Add space below the lab name */
+        }
+
+        .research-block:hover {
+            max-height: none; /* Expand height on hover */
+            padding: 30px; /* Optional: Increase padding to add space */
+        }
+
+        .research-block p {
+            margin-bottom: 10px;
+        }
+
+        .more-text {
+            display: inline; /* Keep the hidden text inline */
+            opacity: 0; /* Initially hide text */
+            transition: opacity 0.3s ease; /* Smooth transition for text appearance */
+        }
+
+        .research-block:hover .more-text {
+            opacity: 1; /* Show text when hovering over the block */
+        }
+        
+        .category h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        /* Project block styling */
+        .project-block {
+            background-color: #f0f4f8; /* Light background color for the blocks */
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+            overflow: hidden;
+            max-height: 295px; /* 調整下拉式區塊大小 */ 
+            transition: max-height 0.9s ease, padding 0.9s ease; /* Smooth transition for height and padding */
+            position: relative;
+        }
+        
+        /* Style for lab names to make them larger and visually distinct */
+        .project-block h2 {
+            font-family: 'Montserrat', sans-serif; /* Change font to something distinct but modern */
+            font-size: 25px; /* Make the lab name bigger */
+            font-weight: 800; /* Bold font for emphasis */
+            color: #333; /* Darker color for better contrast */
+            margin-bottom: 15px; /* Add space below the lab name */
+        }
+    
+
+        .project-block h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .skills {
+            font-family: 'Gill Sans', sans-serif; /* Change font to something distinct but modern */
+            font-size: 20px; /* Make the lab name bigger */
+            font-weight: 400; /* Bold font for emphasis */
+            color: #333; /* Darker color for better contrast */
+            margin-bottom: 15px; /* Add space below the lab name */
+            letter-spacing: 0.8px;
+        }
+
+        .project-block:hover {
+            max-height: 5000px; /* Expand height on hover */
+            padding: 20px; /* Optional: Increase padding to add space */
+        }
+
+        .project-block p {
+            margin-bottom: 10px;
+        }
+
+        .project-block:hover .more-text {
+            opacity: 1; /* Show text when hovering over the block */
+        }
+
+        .project-details {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #555;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .poster-img {
+            max-width: 60%; /* Make the image responsive */
+            height: auto; /* Maintain aspect ratio */
+            display: block;
+            margin: 0 auto; /* Center the image */
+            border-radius: 5px; /* Add slight border radius for aesthetics */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow around the image */
+        }
+
+
+        /* Hidden project list initially */
+        .project-list {
+            margin-left: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="Hsu.jpg" alt="Hsu Jia-Lien">
+		 <h1>Jia-Lien Hsu<h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#Insert">Research Interest</a>
+            <a href="#Publication">Publication</a>
+            <a href="#Profile">Profile</a>
+            <a href="#Lab members">Lab Members</a>
+        </nav>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <section id="about">
+			<h1>
+				<img src="big fju logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 550px; height: 100px;">
+				<br/><img src="small logo.png" alt="Logo" style="vertical-align: middle; width: 30px; height: 30px; margin-right: 10px;">知識工程實驗室 / Knowledge Engineering Lab
+			</h1>
+
+			<!-- <h1><img src="fju logo.jpg" alt="Logo" style="vertical-align: middle; width: 100px; height: 100px; margin-right: -10px;"> 知識工程實驗室 / Knowledge Engineering Lab</h1> --><!-- 輔大LOGO-->
+			<div class="project-block" id = "lab1">  <!-- 區塊開始 -->
+                <h2 style="font-size: 1.5em;">
+					輔仁大學資訊工程學系 教授 <br/> Professor, Fu Jen Catholic University </h2>
+				 <!--   <span class="more-text">  -->
+				<ul>
+					<li>Email : <a href="mailto:alien@csie.fju.edu.tw">alien@csie.fju.edu.tw</a></li>
+					<li>Phone : +886-2-2905-3817</li> 
+					<li>Office : 聖言樓618室 (SF618)</li>
+					<li>CSIE@FJU Website : <a href="https://csie2.fju.edu.tw/">https://csie2.fju.edu.tw/</a></li>
+				</ul>
+			<!-- </span> -->
+			</div> <!-- 區塊結束 -->
+			<div class="separator"></div> <!-- 空白線 -->
+		</section>
+   
+        
+        <section id="about">
+            <h1 id="Insert"><img src="small logo.png" alt="Logo" style="vertical-align: middle; width: 30px; height: 30px; margin-right: 10px;"> <!--small logo-->Research Interest</h1>
+            <div class="project-block" id = "lab1">  <!-- 研究領域 / Research Interest 框架1 -->
+                <h2>研究領域 / Research Interest</h2>
+				<ul>
+					<li>多媒體資料庫 / Multimedia Databases</li>
+					<li>音樂資訊查詢系統 / Music Information Retrieval / Music Informatics</li>
+					<li>資料探勘 / Data Mining</li>
+					<li>醫學資訊 / Medical Informatics</li>
+				</ul>   
+            </div><!-- 框架1結束 -->
+
+            <div class="project-block" id = "lab2">  <!-- 研究計畫 / PROJECT 框架2 -->
+            <h2>國科會研究計畫 / NSTC Project</h2>
+				<Ul>
+				    <li>2024/08 ~ 2025/07 古典音樂樂譜之辨識研究</li>
+					<li>2022/08 ~ 2023/07 音樂段落生成之進階研究</li>
+					<li>2021/08 ~ 2022/07 病人線上醫療評價敘事經驗的文字探勘（共同主持人）</li>
+					<li>2020/08 ~ 2022/01 使用者經驗為導向的醫療評價網站建置、評估、評論內容分析與驗證（共同主持人）</li>
+					<li>2019/08 ~ 2021/07 針對影片構成之輔助配樂生成系統</li>
+					<li>2019/08 ~ 2020/07 從官方品質揭露到民眾參與網路評價–民眾對醫師/醫院評價的認知、使用以及回饋行為之探索（共同主持人）</li>
+					<li>2017/08 ~ 2019/07 跨模態音樂情緒基準資料集以及進階分析技術</li>
+					<li>2016/06 ~ 2016/08 補助科學與技術人員國外短期研究：根據個人情緒狀態調整之EEG音樂情緒辨識</li>
+					<li>2015/08 ~ 2017/07 以實證導向以及個人化服務為基礎的音樂物件之情感分析</li>
+					<li>2014/08 ~ 2017/07 巨量資料與知識庫為本之寫作翻譯編輯提示輔助工具（共同主持人）</li>
+					<li>2013/08 ~ 2014/07 睡眠障礙診斷、居家照護及輔助治療的研究--子計畫二：MusicMate 2.0：音樂情緒之分析與應用 (II)</li>
+					<li>2012/08 ~ 2013/07 睡眠障礙診斷、居家照護及輔助治療的研究--子計畫二：MusicMate 2.0：音樂情緒之分析與應用</li>
+					<li>2011/08 ~ 2012/07 資料探勘:行動裝置上的音樂風格分析</li>
+					<li>2009/11 ~ 2010/10 多媒體資料管理平台</li>
+					<li>2008/08 ~ 2009/07 音樂物件的跨模態特徵擷取、音樂推薦與視覺化之研究</li>
+					<li>2006/08 ~ 2007/07 Streaming MusicXML：針對串流音樂物件的特徵擷取、摘要以及查詢之研究與叢集分析之研究</li>
+					<li>2005/08 ~ 2006/07 關於 MusicXML 的查詢、特徵擷取與叢集分析之研究</li>
+					<li>2004/08 ~ 2005/07 在Music XML中，利用「音樂主題旋律特徵」為基礎的音樂物件分析之研究</li>
+					<li>2003/08 ~ 2004/07 BioDB：基因微陣列資料庫與分析工具之整合系統</li>
+					<li>2002/04 ~ 2002/11 即時性前瞻計畫「應用於基因微陣列分析之資料探勘演算法」</li>
+					<li>2001/08 ~ 2002/07 內涵式音樂資訊查詢</li>
+				</Ul>
+            </div><!-- 框架2結束 -->
+			
+			<div class="project-block" id = "lab3"> <!-- 學校計畫 / PROJECT 框架3 -->
+            <h2>輔大學校計畫 / FJU Project</h2>
+				<ul>
+					<li>2021/08 ~ 2022/07 建構音樂銜接段落之研究</li>
+					<li>2020/08 ~ 2021/07 109年度高教深耕計畫（CPC 程式競賽訓練與 NISRA 資訊安全之自主學習計畫）</li>
+					<li>2019/01 ~ 2019/11 建置衛生福利部醫院的品質評價網站</li>
+					<li>2018/12 ~ 2020/07 教育部人工智慧技術與應用領域系列課程計畫</li>
+					<li>2018/06 ~ 2018/11 建置輔大醫療評價網站</li>
+					<li>2013/02 ~ 2014/01 教育部之大專校院資訊軟體人才培育推廣計畫：A類計畫 (名稱：多媒體互動與智慧感知計畫</li>
+					<li>2011/08 ~ 2012/07 音樂社群標籤之研究</li>
+					<li>2011/04 ~ 2012/03 教育部網路通訊人才培育先導型計畫：100年度課程發展計畫</li>
+					<li>2010/08 ~ 2011/07 音樂物件的進階分群技術</li>
+					<li>2009/08 ~ 2010/07 Music on the go:行動裝置上依據情緒模組的音樂分類與推薦</li>
+					<li>2009/03 ~ 2010/02 資通訊重點領域課程推廣計畫--多媒體系統與行動通訊</li>
+					<li>2009/01 ~ 2009/12 大學跨學門科學人才培育銜接計畫之98-B1-4生物序列的分析-演算法與資料探勘的基礎計畫</li>
+					<li>2008/08 ~ 2009/07 基於社群概念來產生播放清單</li>
+					<li>2007/08 ~ 2008/07 音樂結構特徵的視覺化之研究</li>
+					<li>2007/04 ~ 2008/03 3M：音樂分類、標籤預測與推薦系統</li>
+					<li>2002/04 ~ 2002/11 即時性前瞻計畫: 應用於基因微陣列分析之資料探勘演算法</li>
+				</ul>
+            </div> <!-- 框架3結束 -->
+			
+			<div class="project-block" id = "lab4"> <!-- 教育部計畫 / PROJECT 框架4 -->
+             <h2>教育部計畫 / MOE Project</h2>
+				<ul>
+				    <li>2024/01 ~ 2024/12 113年數位學伴計畫夥伴大學實施計畫</li>
+					<li>2023/01 ~ 2023/12 112年數位學伴計畫夥伴大學實施計畫</li>
+					<li>2019/01 ~ 2020/07 大學校院辦理人工智慧系列課程</li>
+					<li>2013/02 ~ 2014/01 教育部之大專校院資訊軟體人才培育推廣計畫：A類計畫 （名稱：多媒體互動與智慧感知計畫）</li>
+					<li>2011/04 ~ 2012/03 教育部網路通訊人才培育先導行計畫：100年度課程發展計畫</li>
+					<li>2009/03 ~ 2010/07 資通訊重點領域課程推廣計畫-多媒體系統</li>
+					<li>2009/01 ~ 2009/12 生物序列的分析-演算法與資料探勘的基礎計畫</li>
+				</ul>
+            </div><!-- 框架4結束 <2024.11.1>-->
+			<div class="separator"></div> <!-- 空白線 -->
+			
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="about">
+            <h1 id="Publication"><img src="small logo.png" alt="Logo" style="vertical-align: middle; width: 30px; height: 30px; margin-right: 10px;"> <!--small logo-->Publication</h1>
+			<div class="project-block" id = "lab1"> <!-- JOURNAL PAPERS框架1 -->
+			<h2>Journal Papers</h2>
+				<ul>
+					<li>Hsu, J.-L.; Singaravelan, A., Lai, C.-Y., Li, Z.-L., Lin, C.-N., Wu, W.-S., Kao, T.-W., Chu, P.-L., "Applying a Deep Learning Model for Total Kidney Volume Measurement in Autosomal Dominant Polycystic Kidney Disease." Bioengineering, Vol. 11, No. 963, 2024. [SCI].</li>
+					<li>Chu, M.-N., Yu, M.-L., Hsu, J.-L., "Calculating the Distance between Languages with Deep Learning." Biomedical Signal Processing and Control, accepted, 2023. [SCI].</li>
+					<li>Natesan, B., Singaravelan, A., Hsu, J.-L., Lin, Y.-H., Lei, B., Liu, C.-M., "Channel–Spatial Segmentation Network for Classifying Leaf Diseases." Agriculture, Vol. 12, No. 11, 2022. [SCI].</li>
+					<li>Chen, T.-T., Wu, C.-I., Chiu, M.-H. P., Hsu, J.-L., Liao, M.-H., Hsueh, Y.-S. A., Su, W.-C., "Factors Associated with the Patient/Client Use of Report Cards, Physician Rating Websites, Social Media, and Google for Hospital and Physician Selection: A Nationwide Survey." Healthcare, Vol. 10, No. 10, 2022. [SCI].</li>
+					<li>Chu, J., Hsieh, C.-H., Shih, Y.-N., Wu, C.-C., Singaravelan, A., Hung, L.-P., Hsu, J.-L., "Operating Room Usage Time Estimation with Machine Learning Models." Healthcare, Vol. 10, No. 1518, 2022. [SCI].</li>
+					<li>Singaravelan, A., Hsieh, C.-H., Liao, Y.-K., Hsu, J.-L., "Predicting ICD-9 Codes Using Self-Report of Patients." Applied Sciences, Vol. 11, No. 10046, 2021. [SCI].</li>
+					<li>Hsu, J.-L., Chang, S.-J., "Generating Music Transition by Using a Transformer-based Model." Electronics, Vol. 10, No. 18:2276, 2021. [SCI].</li>
+					<li>Yang, P.-T., Wu, W.-S., Wu, C.-C., Shih, Y.-N., Hsieh, C.-H., Hsu, J.-L., "Breast cancer recurrence prediction with ensemble methods and cost-sensitive learning." Open Medicine, Vol. 16, No. 1, 2021. [SCI].</li>
+					<li>Shih, Y.-N., Hsu, J.-L., Wang, Y.-C., Wu, C.-C., Liao, Y.-H., "Test–retest reliability and criterion-related validity of Shih–Hsu test of attention between people with and without schizophrenia." British Journal of Occupational Therapy, 2021. [SCI].</li>
+					<li>Hsu, J.-L., Hsu, T.-J., Singaravelan, A., Hsieh, C.-H., "Applying Convolutional Neural Networks to Predict the ICD-9 Codes of Medical Records." Sensors, Vol. 20, No. 24, 7116, Dec. 2020. [SCI].</li>
+					<li>Hsu, J.-L., Lee, C.-H., Hsieh, C.-H., "Digitizing abdominal palpation with a pressure measurement and positioning device." PeerJ, Vol. 8, e10511, Dec. 2020. [SCI].</li>
+					<li>Shih, Y.-N., Hsu, J.-L., Wu, C.-C., Hsiao, J.-H., "Development of an iPad-based Assessment Tool of Attention and validation in Elder Employee." WORK: A Journal of Prevention, Assessment & Rehabilitation, Vol. 67, No. 4, 2020. [SSCI].</li>
+					<li>Hsu, J.-L., Zhen, Y.-L., Lin, T.-C., Chiu, Y.-S., "Affective content analysis of music emotion through EEG." Multimedia Systems, Vol. 24, No. 2, 195-210, Mar. 2018. [SCI, EI].</li>
+					<li>Hsu, J.-L., Hsiao, T.-H., "Finding sequence clusters: A shared near neighbors approach." Journal of Information Science and Engineering, Vol. 31, No. 5, Sept. 2015. [SCI, EI].</li>
+					<li>Hsu, J.-L., Huang, C.-C., "Designing a Graph-based Framework to Support a Multi-modal Approach for Music Information Retrieval." Multimedia Tools and Applications, Vol. 74, No. 15, Aug. 2015. DOI: <a href="https://doi.org/10.1007/s11042-014-1860-2">10.1007/s11042-014-1860-2</a>. [SCI, EI].</li>
+					<li>Hsu, J.-L., Hung, P.-C., Lin, H.-Y., Hsieh, C.-H., "Applying under-sampling techniques and cost-sensitive learning methods on risk assessment of breast cancer." Journal of Medical Systems, Vol. 39, No. 4, Feb. 2015. [SCI].</li>
+					<li>Hsu, J.-L., Wu, Y.-S., Wu, I.-C., "A Hybrid Method for Sequence Clustering." Journal of Information Science and Engineering, Vol. 30, No. 5, Sept. 2014. [SCI, EI].</li>
+					<li>Hsu, J.-L., Lai, Y.-C., "Automatic Playlist Generation by Applying Tabu Search." International Journal of Machine Learning and Cybernetics, Vol. 5, No. 4, Aug. 2014. DOI: <a href="https://doi.org/10.1007/s13042-013-0151-y">10.1007/s13042-013-0151-y</a>. [EI].</li>
+					<li>Wu, I.-C., Chen, G.-W., Hsu, J.-L., Lin, C.-Y., "An Entropy-based Query Expansion Approach for Learning Researchers' Dynamic Information Needs." Knowledge-based Systems, Vol. 52, Nov. 2013. DOI: <a href="https://doi.org/10.1016/j.knosys.2013.07.017">10.1016/j.knosys.2013.07.017</a>. [SCI].</li>
+					<li>Hsu, J.-L., Li, Y.-F., "A Cross-Modal Method of Labeling Music Tags." Multimedia Tools and Applications, Vol. 58, No. 3, Jun. 2012. DOI: <a href="https://doi.org/10.1007/s11042-011-0729-x">10.1007/s11042-011-0729-x</a>. [SCI, EI].</li>
+					<li>吳玉舒、徐嘉連(2012,05)。〈多標籤子序列分群方法〉。輔仁學誌，第45卷。</li>
+					<li>黃建彰、徐嘉連(2012,05)。〈音樂物件之社群標籤〉。輔仁學誌，第45卷。</li>
+					<li>馮寶珠、林文賢、徐嘉連(2011,06)。〈「輔仁大學日文系電腦輔助日語文法教材資料庫」簡介〉。人文與社會科學簡訊，第12卷，第3期。</li>
+					<li>徐嘉連、鄒濟鴻(2010,12)。〈影像資料管理平台〉。輔仁學誌，第44卷。</li>
+					<li>尤姿文、徐嘉連(2009,12)。〈μzBox: 音樂資訊查詢與管理系統〉。輔仁學誌，第43卷。</li>
+					<li>袁欣華、徐嘉連(2007,12)。〈利用聲部結構於多音音樂之比對與排序〉。輔仁學誌，第41卷。</li>
+					<li>劉益助、徐嘉連(2004,12)。〈從音樂資料中找出近似重複樣型的curve-based演算法〉。輔仁學誌，第38卷。</li>
+					<li>Hsu, J.-L., Liu, C.-C., Chen, A. L.P., "Discovering Non-trivial Repeating Patterns in Music Data." IEEE Transactions on Multimedia, Vol. 3, No. 3, Sep. 2001. [SCI].</li>
+					<li>Liu, C.-C., Hsu, J.-L., Chen, A. L.P., "Efficient Near Neighbor Searching Using Multi-Indexes for Content-Based Multimedia Data Retrieval." Multimedia Tools and Applications, Vol. 13, No. 3, Mar. 2001. [SCI, EI].</li>
+				</ul>
+
+            </div><!-- 框架1結束 -->
+
+			<div class="project-block" id = "lab2"> <!-- CONFERENCE PAPERS 框架2 -->
+			<h2>Conference Papers</h2>
+				<ul>
+				  <li>Chun-Nan Chi, "CapSight: A Social Aid System for the Visually Impaired Using Facial Recognition and Haptic Feedback," in Proceedings of 2024 IEEE 13th Global Conference on Consumer Electronics (GCCE 2024), Kokura, Japan, Oct. 2024. [IEEE].</li>
+				  <li>Jia-Lien Hsu, "Automatic Vertebrae Segmentation and Prediction of Secondary Fractures with Machine Learning Using Biomechanical Features and Radiomics," in Proceedings of International Conference on Machine Learning and Cybernetics (ICMLC), Miyazaki, Japan, Sep. 2024. [IEEE].</li>
+				  <li>Jia-Lien Hsu, "Iterative Process Fusion Method in Uncovering Pathways of Vascular Structures Based on Hyperspectral Imaging," in Proceedings of International Conference on Machine Learning and Cybernetics (ICMLC), Miyazaki, Japan, Sep. 2024. [IEEE].</li>
+				  <li>Pei-Tse Yang, Shih-Ming Kuang, Chia-Chun Wu, and Jia-Lien Hsu*, "Predicting Music Emotion By Using Convolutional Neural Network," in Proceedings of HCI International 2020, (Virtual Conference), Copenhagen, Denmark, July. 2020. [HCIB/HCII 2020, LNCS 12204 proceedings, EI].</li>
+				  <li>Jia-Lien Hsu and Chia-Chun Wu, "A personalized approach for recognizing music emotion on mobile devices," in Proceedings of the 5th Annual Conference on Engineering and Information Technology, Kyoto, Japan, 2018.</li>
+				  <li>徐嘉連、張瓊文、張俊盛(2015,10)。〈基於貝氏定理自動分析語料庫與標定文步〉。ROCLING 2015，新竹。</li>
+				  <li>Jia-Lien Hsu, Yan-Lin Zhen, Tzu-Chieh Lin and Yi-Shiuan Chiu, "Personalized Music Emotion Recognition using Electroencephalography (EEG)," in Proceedings of IEEE International Symposium on Multimedia (ISM-2014), Taichung, Dec. 2014. [IEEE, EI].</li>
+				  <li>Jia-Lien Hsu and Chiu-Yuan Ho, "Designing a multi-modal association graph for music objects," in Proceedings of HCI International 2014, Creta Maris, Jun. 2014. [HCIB/HCII 2014, LNCS 8527 proceedings, EI].</li>
+				  <li>Jia-Lien Hsu and Tzu-Han Hsiao, "A Multi-label Clustering Method for Sequence Data," in Proceedings of International Conference on Electrical Engineering and Computer Science, Tokyo, Mar. 2013. [EI].</li>
+				  <li>Jia-Lien Hsu and Shuk-Chun Chung, "Constraint-based Playlist Generation by Applying Genetic Algorithm," in Proceedings of IEEE International Conference on Systems, Man, and Cybernetics (IEEE SMC), Anchorage, Oct. 2011. [EI Compendix/IEEE Xplore].</li>
+				  <li>許聆容、徐嘉連(2011,04)。〈在行動裝置上以情緒模組提供個人化音樂服務系統〉。中華民國第一屆網路智能與應用研討會，高雄。</li>
+				  <li>Jia-Lien Hsu and Wei-Hsien Chien, "VisMusic: Music Visualization with Interactive Browsing," in Proceedings of International Conference on Computational Collective Intelligence - Semantic Web, Social Networks & Multiagent Systems (ICCCI 2010, Part III, LNAI 6423), Kaohsiung, Nov. 2010. [LNAI, EI].</li>
+				  <li>Jia-Lien Hsu and Yu-Yung Su, "Strategy-based Personal Music Channel Service," in Proceedings of International Conference on Machine Learning and Cybernetics, Qingdao, Jul. 2010. [EI Compendix / IEEE Xplore].</li>
+				  <li>Jia-Lien Hsu and Hong-Xiang Yang, "A Modified K-means Algorithm for Sequence Clustering," in Proceedings of Ninth International Conference on Hybrid Intelligent Systems (HIS-2009), Aug. 2009. [EI Compendix / IEEE Xplore].</li>
+				  <li>徐嘉連、毛慧雯(2009,05)。〈使用決策樹預測電信業優質及可能流失之客戶〉。KC2013知識社群研討會，臺灣。</li>
+				  <li>徐嘉連、張皇裕(2009,04)。〈運用地理資訊精進房貸風險預測〉。資訊科技國際研討會，臺灣。</li>
+				  <li>Jia-Lien Hsu and Ya-Hung Tseng, "Music Visualization with DISC and Structural Feature Diagram," in Proceedings of the 2008 International Conference on Data Mining (DMIN'08), Jul. 2008.</li>
+				  <li>Ai-Ti Chiu, Jia-Lien Hsu, and Hong-Xiang Yang, "Querying Streaming MusicXML with XPath," in Proceedings of the 2007 International Conference on Multimedia Systems and Applications (MSA'07)2007, Jun. 2007.</li>
+				  <li>Yu-Chih Shen, Jia-Lien Hsu, and Shuk-Chun Chung, "MF-tree: Extracting and Clustering the Structural Features from Music Object in MusicXML," in Proceedings of the 2006 International Conference on Data Mining (DMIN'06), Jan. 2007.</li>
+				  <li>Ai-Ti Chiu and Jia-Lien Hsu, "An Automaton-Based Filtering System for Streaming MusicXML," in Proceedings of the 2006 International Conference on Semantic Web & Web Services (SWWS'06), Jan. 2007.</li>
+				  <li>徐嘉連、張青揚(2005,10)。〈針對生化代謝之資料模組、範例式查詢以及查詢處理演算法〉。National Computer Symposium (NCS)。</li>
+				  <li>徐嘉連、沈裕智(2005,09)。〈針對 MusicXML 格式的音樂物件所提出的特徵擷取與分類方法之研究〉。National Computer Symposium (NCS)。</li>
+				  <li>Ching-Yang Chang, and Jia-Lien Hsu, "Modeling, QBE-like Query and Processing for Metabolic Pathway Data," in Proceedings of Symposium and Workshop of Bioinformatics in Taiwan (BIT 2005), Sep. 2005.</li>
+				  <li>Jia-Lien Hsu, Arbee L.P. Chen, and Hung-Chen Chen, "Finding Approximate Repeating Patterns from Sequence Data," in Proceedings of International Conference on Music Information Retrieval (ISMIR 2004), Oct. 2004.</li>
+				  <li>Jia-Lien Hsu, Arbee L.P. Chen, Hung-Chen Chen, and Ning-Han Liu, "The Effectiveness Study of Various Music Information Retrieval Approaches," in Proceedings of International Conference on Information and Knowledge Management (ACM CIKM’02), Nov. 2002.</li>
+				  <li>Jia-Lien Hsu and Arbee L.P. Chen, "Building a Platform for Performance Study of Various Music Information Retrieval Approaches," in Proceedings of International Symposium on Music Information Retrieval (ISMIR 2001), Oct. 2001.</li>
+				  <li>Arbee L.P. Chen, Maggie Chang, Chen, J., Chih-How Hsu, and Jia-Lien Hsu, "Query by Music Segments: An Efficient Approach for Song Retrieval," in Proceedings of IEEE International Conference on Multimedia and Exposition (ICME’00), IEEE, Jul. 2000.</li>
+				  <li>Chih-Chin Liu, Jia-Lien Hsu, and Arbee L.P. Chen, "An Approximate String Matching Algorithm for Content-Based Music Data Retrieval," in Proceedings of the International Conference on Multimedia Computing and Systems (ICMCS’99), IEEE, Jun. 1999.</li>
+				  <li>Chih-Chin Liu, Jia-Lien Hsu, and Arbee L.P. Chen, "Efficient Theme and Non-Trivial Repeating Pattern Discovering in Music Databases," in Proceedings of the 15th International Conference on Data Engineering (ICDE’99), Mar. 1999.</li>
+				  <li>Jia-Lien Hsu, Chih-Chin Liu, and Arbee L.P. Chen, "Efficient Repeating Pattern Finding in Music Databases," in Proceedings of Seventh International Conference on Information and Knowledge Management (ACM CIKM), ACM, Nov. 1998.</li>
+				</ul>
+
+			</div><!-- 框架2結束 -->
+
+            <div class="project-block" id = "lab3"> <!-- HONOR 框架3 -->
+			<h2>Honor</h2>
+				<ul> 
+					<li>AI CUP 2020 （教育部全國大專校院人工智慧競賽），2021</li>
+					<li>科技部「101年度科技部開放軟體研發專案計畫之績優團隊」，<span class="style5">2014</span></li>
+					<li>輔仁大學「理工學院教師及研究人員研究成果獎勵」，<span class="style5">2013</span></li>
+					<li>輔仁大學資工系「輔大資工系大學部專題製作競賽」（手機組），<span class="style5">2011</span></li>
+					<li>財團法人育秀教育基金會「第八屆育秀盃創意競賽」，<span class="style5">2010</span></li>
+					<li>輔仁大學資工系「輔大資工系大學部專題製作競賽」指導同學、獲獎第三名，<span class="style5">2009</span></li>
+					<li>中華民國資訊學會「碩博士最佳論文獎‧博士論文佳作獎」，<span class="style5">2001</span></li>
+				</ul>
+			</div> <!-- 框架3結束 -->
+			
+			<div class="project-block" id = "lab4"> <!-- PATENT 框架4 -->
+			<h2>Patent</h2>
+			<ul>
+				<li>應用虛擬實境模擬兒童日常生活訓練的虛擬實境互動式系統（專利證號：<span class="style5">I800124），2023</span></li>
+				<li>應用虛擬實境模擬表情情緒訓練的虛擬實境互動式系統（專利證號：<span class="style5">I824883），2023</span></li>
+				<li>在音樂資料庫中快速地找出重複樣型的方法（專利證號：<span class="style5">TW 134411），2001</span></li>
+
+			</div> <!-- 框架4結束 -->
+			
+			<div class="project-block" id = "lab5"> <!-- USEFUL LINK 框架5 -->
+			<h2>Useful Link</h2>
+			<ul>
+				<li>ACM (Association for Computing Machinery)<br /><a href="http://www.acm.org" target="_blank">http://www.acm.org</a></li>
+				<li>IEEE (the Institute of Electrical and Electronics Engineers, Inc.)<br /><a href="http://www.ieee.org" target="_blank">http://www.ieee.org</a></li>
+				<li>IRCAM (Institut de recherche et coordination acoustique/musique)<br /><a href="http://www.ircam.fr/?L=1" target="_blank">http://www.ircam.fr</a></li>
+				<li>ISMIR (The International Conferences on Music Information Retrieval and Related Activities)<br /><a href="http://www.ismir.net" target="_blank">http://www.ismir.net</a></li>
+				<li>Content-Based Music Information Retrieval<br /><a href="http://citeseer.nj.nec.com/257212.html" target="_blank">http://citeseer.nj.nec.com/257212.html</a></li>
+				<li>Music Search and Retrieval<br /><a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/project/music/web/search/" target="_blank">http://www.cs.cmu.edu/afs/cs.cmu.edu/project/music/web/search/</a></li>
+				<li>Music Information Retrieval Research<br /><a href="http://www.cc.gatech.edu/~ebeowulf/musicLinks.html" target="_blank">http://www.cc.gatech.edu/~ebeowulf/musicLinks.html</a></li>
+				<li>Searching for Sound and Music at IRCAM<br /><a href="http://sigmm.utdallas.edu/apache/announcement/SIGMM_Top100_july-oct-2008.html" target="_blank">http://mediatheque.ircam.fr/articles/textes/Fingerhut99c/</a></li>
+				<li>ACM SIGMM (Association for Computing Machinery's Special  Interest Group on Multimedia)<br /><a href="http://sigmm.utdallas.edu/apache/announcement/SIGMM_Top100_july-oct-2008.html" target="_blank">http://sigmm.utdallas.edu/apache/announcement/SIGMM_Top100_july-oct-2008.html</a></li>
+			</ul>
+			</div><!--框架5結束 -->
+		<div class="separator"></div> <!-- 空白線 -->
+		</section>
+		
+            <!-- Conference Presentations Section -->
+        <section id="about">    
+			<h1 id="Profile">
+				<img src="small logo.png" alt="Logo" style="vertical-align: middle; width: 30px; height: 30px; margin-right: 10px;">
+				<!--small logo-->Profile
+			</h1>
+			<div class="project-block" id="lab1" style="color: black;"> <!-- Profile 框架 --> 
+				<p style="font-size: 30px; line-height: 100%;" class="p2"><span class="s4">現任</span></p>
+				<div style="line-height: 150%;" class="p1">
+					<ul style="list-style-type: disc; margin-left: 20px; color: black;">
+						<li>
+							輔仁大學 資訊工程學系 教授兼系主任<br/>
+							Professor and Department Chair, Department of Computer Science and Information Engineering, Fu Jen Catholic University
+						</li>
+					</ul>
+				</div>
+
+				<p style="font-size: 30px; line-height: 100%; margin-top:30px;" class="p2"><span class="s4">研究領域</span></p>
+				<div style="line-height: 150%;" class="p1">
+					<ul style="list-style-type: disc; margin-left: 20px; color: black;">
+						<li>多媒體資料庫 / Multimedia Databases</li>
+						<li>音樂資訊查詢系統 / Music Information Retrieval / Music Informatics</li>
+						<li>資料探勘 / Data Mining</li>
+						<li>醫學查詢 / Medical Informatics</li>
+					</ul>
+				</div>
+
+				<p style="font-size: 30px; line-height: 100%; margin-top:30px;" class="p2"><span class="s4">學歷</span></p>
+				<div style="line-height: 150%;" class="p1">
+					<ul style="list-style-type: disc; margin-left: 20px; color: black;">
+						<li>
+							國立清華大學 資訊工程學系 博士 1995年9月 ~ 2001年9月<br/>
+							Ph.D., Department of Computer Science, National Tsing Hua University (September 1995 ~ September 2001)
+						</li>
+						<li>
+							國立清華大學 資訊工程學系 碩士 1994年9月 ~ 1995年6月<br/>
+							M.S., Department of Computer Science, National Tsing Hua University (September 1994 ~ June 1995)
+						</li>
+						<li>
+							國立清華大學 資訊工程學系 學士 1990年9月 ~ 1994年6月<br/>
+							B.S., Department of Computer Science, National Tsing Hua University (September 1990 ~ June 1994)
+						</li>
+					</ul>
+				</div>
+
+				<p style="font-size: 30px; line-height: 100%; margin-top:30px;" class="p2"><span class="s4">經歷</span></p>
+				<div style="line-height: 150%;" class="p1">
+					<ul style="list-style-type: disc; margin-left: 20px; color: black;">
+						<li>
+							美國加州大學聖地牙哥分校 計算神經科學中心 訪問學人 2016年6月 ~ 2016年8月<br/>
+							Visiting Scholar, Swartz Center for Computational Neuroscience, University of California San Diego (June 2016 ~ August 2016)
+						</li>
+						<li>
+							工業技術研究院 電通所 工程師 2001年12月 ~ 2002年7月<br/>
+							Engineer, Computer & Communications Research Laboratories, Industrial Technology Research Institute (December 2001 ~ July 2002)
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="separator"></div> <!-- 空白線 -->
+		</section>
+
+		
+		
+        <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+        </script>
+
+
+    <section id="about">
+        <h1 id="Lab members"><img src="small logo.png" alt="Logo" style="vertical-align: middle; width: 30px; height: 30px; margin-right: 10px;"> <!--small logo-->Lab Members</h1>
+     
+            <div class="project-block" id="Pub1" >
+            <h2>歷屆研究生</h2>                    
+				<ul>
+				    <li style="margin-bottom: 10px;">杜弘仁 / 113碩 / 通過佈局感知的多模態模型提升生物醫學文件分析<br/>(Enhancing biomedical document analysis with layout-aware multitask models)
+				    <li style="margin-bottom: 10px;">張翔奕 / 113碩 / 基於YOLOv8和CRNN對整頁鋼琴樂譜進行光學樂譜辨識<br/>(Optical music recognition for full-page piano sheet music using YOLOv8 and CRNN)
+				    <li style="margin-bottom: 10px;">洪伯翰 / 113碩 / 以YOLOv8進行特發性肺纖維化與肺部總面積之佔比計算 <br/>(Calculation of the ratio of idiopathic pulmonary fibrosis to total lung area using YOLOv8)
+				    <li style="margin-bottom: 10px;">吳香凝 / 113碩 / 英文作文評分比較研究 : 母語與非母語評分者以及GPT模型<br/>(Assessing English writing : a comparative analysis of native and non-native raters versus GPT-based automated essay scoring systems )
+				    <li style="margin-bottom: 10px;">沈安楠 / 113碩 / Advancements in complex source separation and medical informatics with deep learning
+					<li style="margin-bottom: 10px;">徐崇勝 / 112碩 / 基於功能性磁振造影利用大腦功能關聯性分析進行神經性紅斑性狼瘡之分辨 <br/>(Discrimination of Neuropsychiatric Systemic Lupus Erythematosus based on functional magnetic resonance imaging using brain functional connectivity analysis)
+					<li style="margin-bottom: 10px;">吳聲泫 / 112碩 / 以二分圖配對音樂片段<br/>(Music segment matching by using bipartite graph)
+					<li style="margin-bottom: 10px;">許高祥 / 111碩 / 使用基因演算法於兩個音樂段落間生成銜接的段落<br />(Generating a fill-in music by using genetic algorithms)
+					<li style="margin-bottom: 10px;">陳冠宇 / 111碩 / 多任務深度學習方法於心血管磁振造影之心室分割實現<br />(Multi-Task Learning Approach for Heart Ventricle Segmentation on Cardiac Magnetic Resonance Imaging)
+					<li style="margin-bottom: 10px;">張翔威 / 111碩 / 基於U—Net的高光譜皮膚血管影像分割<br />(Hyperspectral Image Segmentation of Skin Vessel Based on U-Net Network)
+					<li style="margin-bottom: 10px;">陳亮祐 / 111碩 / 利用深度學習辨識書法中文字<br />(Recognizing Chinese Calligraphy using Deep Learning Neural Network)
+					<li style="margin-bottom: 10px;">許高翔 / 110碩 / 使用基因演算法於兩個音樂段落間生成銜接的段落<br />(Generating a Fill-in Music by Using Genetic Algorithms)
+					<li style="margin-bottom: 10px;">張述鈞 / 109碩 / 以深度學習銜接樂曲段落<br/>(Generating music transition by using transformer-based model)
+					<li style="margin-bottom: 10px;">吳文碩 / 109碩 / 以深度學習影像技術進行心胸比與腎臟總體積之自動化計算<br/>(Applying deep learning algorithms to measure total kidney volume and calculate cardiothoracic ratio)
+					<li style="margin-bottom: 10px;">鄺世銘 / 108碩 / 以卷積神經網路預測以Valence&Arousal二維情緒座標表示之音樂情緒<br />(Predicting Music Emotion By Using Convolutional Neural Network)
+					<li style="margin-bottom: 10px;">鄭清泉 / 107碩 / 宗教背景對於聆聽音樂之情感分析<br />(The relationship between listening to music and religious belief : a sentimental analysis approach)
+					<li style="margin-bottom: 10px;">黃仁新 / 107碩 / 施徐氏聽覺注意力測驗評估工具<br />(Shih-Hsu auditory attention test)
+					<li style="margin-bottom: 10px;">陳佳華 / 107碩 / 以OPENFACE實作人臉情緒偵測系統<br />(Implementation of an emotion recognition system based on OpenFace)
+					<li style="margin-bottom: 10px;">廖宜楷 / 107碩 / 利用深度學習演算法預測臨床病例之疾病編碼<br />(Applying Deep Learning Algorithms on Classification of Diseases)
+					<li style="margin-bottom: 10px;">許登傑 / 107碩 / 利用捲積神經網路預測疾病分類編碼以病歷資料為例<br />(Applying convolutional neural networks to predict the ICD-9 codes of medical records)
+					<li style="margin-bottom: 10px;">顏嘉村 / 106碩 / 利用深度學習演算法預測時間序列資料以腦波與音樂資料為例<br />(Using deep learning algorithm to predict the time series data with EEG and music data)
+					<li style="margin-bottom: 10px;">李家輝 / 106碩 / 設計人體腹部理學檢查之壓力感測器<br />(A preesure measurement device for abdominal examinations)
+					<li style="margin-bottom: 10px;">林子傑 / 105碩 / 在行動裝置上以腦波為基礎之音樂情緒辨識系統<br />(Music emotion recognition on mobile device: An EEG-based approach)
+					<li style="margin-bottom: 10px;">張瓊文 / 104碩 / 基於貝氏定理自動分析語料庫與標定文步<br />(A Bootstrap-based and Bayesian Approach to Determine Move Tags in Corpus)
+					<li style="margin-bottom: 10px;">藍博耀 / 104碩職 / OAuth 2.0授權機制應用於校園開放API平台<br />(Establish campus open API platform with OAuth 2.0)
+					<li style="margin-bottom: 10px;">洪秉誠 / 103碩 / 應用抽樣技術和成本敏感學習法評估乳癌風險<br />(Applying Sampling Techniques and Cost-Sensitive Learning Methods on Risk Assessment of Breast Cancer)
+					<li style="margin-bottom: 10px;">曾硯琳 / 103碩 / 以腦波為佐證的音樂情緒分析<br />(Personalized Music Emotion Recognition using Electroencephalography (EEG))
+					<li style="margin-bottom: 10px;">何邱元 / 102碩 / 多模態音樂圖形之研究<br />(A study on multi-modal music graph)
+					<li style="margin-bottom: 10px;">蕭資翰 / 101碩 / 以共同近鄰關係為基礎之序列叢集演算法<br />(Finding Sequence Clusters: A Shared Near Neighbors Approach)
+					<li style="margin-bottom: 10px;">黃建彰 / 100碩 / 音樂物件之社群標籤<br />(Social Tagging for Music Objects)
+					<li style="margin-bottom: 10px;">吳玉舒 / 100碩 / 多標籤子序列分群方法<br />(Multi-label Subsequence Clustering Method)
+					<li style="margin-bottom: 10px;">簡維萱 / 99碩 / 音樂視覺化與互動式瀏覽<br />(VisMusic: Music Visualization with Interactive Browsing)
+					<li style="margin-bottom: 10px;">尤姿文 / 98碩 / μzBox: 音樂資訊查詢與管理系統<br />(μzBox: Music Information Retrieval and Management System)
+					<li style="margin-bottom: 10px;">賴雅昭 / 98碩 / 以禁忌搜尋法產生音樂撥放清單<br />(Automatic Playlist Generation by Applying Tabu Search)
+					<li style="margin-bottom: 10px;">許聆容 / 98碩 / 在行動裝置上，以情緒模組提供個人化音樂服務系統<br />(Emotion-based model of Personal Music Service on Mobile Device)
+					<li style="margin-bottom: 10px;">鍾淑珍 / 97碩 / 以基因演算法產生音樂播放器<br />(Constraint-based Playlist Generation by Applying Genetic Algorithm)
+					<li style="margin-bottom: 10px;">李彥甫 / 97碩 / 以跨模態方式標定音樂風格<br />(The Cross-modal Method of Tagging in Music Information Retrieval)
+					<li style="margin-bottom: 10px;">蘇郁詠 / 97碩 / 策略式個人化音樂推薦服務<br />(Strategy-based Personal Music Channel Service)
+					<li style="margin-bottom: 10px;">周政緯 / 97碩 / 一個以UCT為基礎的電腦圍棋程式之設計與研究<br />(Design and Implementation of a Computer Go Program based on UCT「Upper Confidence Bound for Tree Search」)
+					<li style="margin-bottom: 10px;">毛慧雯 / 97碩職 / 使用決策樹預測電信業者優質及可能流失之客戶<br />(Apply Data Techniques to Telecom for VIP and Churn Customers Prediction Using Decision Tree)
+					<li style="margin-bottom: 10px;">鄒濟鴻 / 97碩職 / 影像資料管理平台<br />(A Framework for Image Data Management)
+					<li style="margin-bottom: 10px;">曾亞虹 / 96碩 / 利用結構圖圓盤和結構特徵圖來呈現音樂視覺化<br />(Music Visualization with Disc and Structural Feature Diagram)
+					<li style="margin-bottom: 10px;">楊閎翔 / 96碩 / 針對序列資料分群的一個改良式K-means演算法<br />(A Modified K-means Algorithm for Sequence Clustering)
+					<li style="margin-bottom: 10px;">鄧德倫 / 96碩職 / 使用Apriori與Hmetis演算法找出股票市場的群組關係<br />(Using APRIORI and HMETIS Algorithm to Find Clusters of Stock in the Market)
+					<li style="margin-bottom: 10px;">袁欣華 / 95碩 / 利用聲部結構於多音音樂之比對與排序<br />(Pattern Matching and Ranking with Voice Structure in Polyphonic Music Databases)
+					<li style="margin-bottom: 10px;">邱愛迪 / 95碩 / 利用XPath表示查詢MusicXML串流<br />(Query Streaming MusicXML with XPath Expressions)
+					<li style="margin-bottom: 10px;">張皇裕 / 95碩職 / 運用地理資訊精進房貸風險預測<br />(Applying Geographic Information to Improve Risk Forecast of Mortgage Loan)
+					<li style="margin-bottom: 10px;">楊世達 / 94碩 / 利用Frame Sampling和Re-mapping的技術,改進「找出相同重複樣型的曲線演算法」<br />(Improvement of the Curve-based Method of Finding Approximate Repeating Patterns: Frame Sampling and Re-mapping)
+					<li style="margin-bottom: 10px;">張青揚 / 94碩 / 針對生化代謝途徑之資料模組範例式查詢以及查詢處理演算法<br />(Modeling, QBE-like Query and Processing for Metabolic Pathway Data)
+					<li style="margin-bottom: 10px;">黃志帆 / 94碩職 / 以Web-based介面進行範例查詢生化代謝途徑查詢系統<br />(A QBE-like and Web-based Retrieval System for Metabolic Pathway)
+					<li style="margin-bottom: 10px;">劉益助 / 93碩 / 從音樂資料中找出近似重複樣型的Curve-based演算法<br />(A Curve-based Algorithm for Finding Approximate Repeating Patterns from Music Data)
+					<li style="margin-bottom: 10px;">沈裕智 / 93碩 / 針對MusicXML格式的音樂物件所提出的特徵擷取與分類方法之研究<br />(A Feature Extraction and Classification Method for Music Objects in MusicXML)		
+				</ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+</body>
+</html>
